@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 card mb-3 d-flex align-items-stretch">
+      <div class="card">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{details.firstName}} {{details.lastName}}</h5>
+          <p class="card-text mb-4">
+            {{details.mobile}}
+          </p>
+          <p class="card-text mb-4">
+            {{details.email}}
+          </p>
+        </div>
+
+        <button
+          style="margin: 1em;"
+          class="btn btn-primary text-white mt-auto align-self-start"
+        >
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button
+    style="margin: 1em;"
+    routerLink="/home"
+    class="btn btn-primary text-white mt-auto align-self-start"
+  >
+    Back
+  </button>
+</div>

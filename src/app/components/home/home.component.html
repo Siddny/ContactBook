@@ -1,0 +1,81 @@
+<h2>Contacts</h2>
+
+<button
+  *ngIf="!listView"
+  (click)="switchView()"
+  class="btn btn-primary text-white mt-auto align-self-end"
+>
+  Grid View
+  <!-- <i class="fa-regular fa-grid-2"></i> -->
+</button>
+<button
+  *ngIf="listView"
+  (click)="switchView()"
+  class="btn btn-primary text-white mt-auto align-self-end"
+>
+  List View
+</button>
+
+<button
+  *ngIf="!selectDelete"
+  (click)="selectToDelete()"
+  class="btn btn-primary text-white mt-auto align-self-end"
+>
+  Select to Delete
+</button>
+<button
+  *ngIf="selectDelete"
+  (click)="selectToDelete()"
+  class="btn btn-primary text-white mt-auto align-self-end"
+>
+  Cancel
+</button>
+<button
+  *ngIf="selectDelete"
+  class="btn btn-primary text-white mt-auto align-self-end"
+>
+  Delete
+</button>
+
+<div class="container" *ngIf="!listView">
+  <div class="row">
+    <div
+      class="col-4 card mb-3 d-flex align-items-stretch"
+      *ngFor="let person of storedContactList; index as i;"
+    >
+      <div class="" routerLink="/details/{{i}}">
+        <div class="card-body d-flex flex-column">
+          <input
+            *ngIf="selectDelete"
+            class="form-check-input me-1"
+            type="checkbox"
+            value=""
+            id="{{i}}"
+          />
+          <p class="card-text mb-4">
+            {{person.firstName}} {{person.lastName}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul class="list-group list-group-flush" *ngIf="listView">
+  <li
+    *ngFor="let person of storedContactList; index as i;"
+    class="list-group-item"
+  >
+    <input
+      *ngIf="selectDelete"
+      class="form-check-input me-1"
+      type="checkbox"
+      value=""
+      id="{{i}}"
+    />
+
+    <span routerLink="/details/{{i}}">
+      {{person.firstName}} {{person.lastName}}
+    </span>
+  </li>
+</ul>
